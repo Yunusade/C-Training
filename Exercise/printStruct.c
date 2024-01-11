@@ -22,4 +22,3 @@ int main(void) {
     printf("Height: %.2f\n", person1.height);
 
     return 0;
-}
