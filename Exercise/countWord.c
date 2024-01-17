@@ -20,7 +20,6 @@ int countWord(const char* phrase, const char* word) {
 
   return count;
 }
-
 int main() {
   const char* phrase = "I'm Programming. Programming is not fun!";
   const char* word = "Programming";
