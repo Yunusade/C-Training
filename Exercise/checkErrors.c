@@ -20,10 +20,10 @@ void get_sky_team_name(char* name)
 int main(void)
 {
   char name[10];
-  char* pTeamName = NULL;    
+  char* pTeamName = NULL;
   
   // No issues with this strcpy as "Sky UK" fits into 'name' including the null terminator
-  strcpy(name, "Sky UK");     
+  strcpy(name, "Sky UK");
   
   while(1)
   {
@@ -31,7 +31,7 @@ int main(void)
     get_sky_team_name(pTeamName); // get_sky_team_name(&pTeamName);
     
     // Undefined behavior due to using uninitialized pointer pTeamName, and skyName is undeclared
-    printf("%s: %s\n", skyName, pTeamName); // printf("%s: %s\n", name, pTeamName);
+    // printf("%s: %s\n", skyName, pTeamName); // printf("%s: %s\n", name, pTeamName);
     
     sleep(1);
   }
