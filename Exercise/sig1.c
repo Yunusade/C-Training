@@ -35,10 +35,12 @@ int main() {
     }
   }
 
+  
   sleep(6);
 
   kill(child1, SIGUSR1);
   kill(child2, SIGUSR1);
   kill(child3, SIGUSR1);
+
   return 0;
 }
