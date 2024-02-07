@@ -32,31 +32,31 @@ int main() {
 
   // Listen for incoming connections
   if (listen(server_socket, 5) == -1) {
-      // perror("Error listening for connections");
+      perror("Error listening for connections");
       exit(EXIT_FAILURE);
   }
 
   printf("Server listening on port %d...\n", PORT);
 
   // Accept a client connection
-  // socklen_t client_addr_len = sizeof(client_addr);
-  // client_socket = accept(server_socket, (struct sockaddr*)&client_addr, &client_addr_len);
+  socklen_t client_addr_len = sizeof(client_addr);
+  client_socket = accept(server_socket, (struct sockaddr*)&client_addr, &client_addr_len);
 
-  // if (client_socket == -1) {
-  //     perror("Error accepting connection");
-  //     exit(EXIT_FAILURE);
-  // }
+  if (client_socket == -1) {
+      perror("Error accepting connection");
+      exit(EXIT_FAILURE);
+  }
 
   printf("Client connected\n");
 
-  // Send the current time to the client every 5 minutes
+  // Send the current time to the client every 5 seconds
   while (1) {
       time_t current_time = time(NULL);
 
       snprintf(buffer, sizeof(buffer), "Current Time: %s", ctime(&current_time));
       send(client_socket, buffer, strlen(buffer), 0);
 
-      sleep(5 * 60);  // Sleep for 5 minutes
+      sleep(5);  // Sleep for 5 seconds
   }
 
   close(server_socket);
