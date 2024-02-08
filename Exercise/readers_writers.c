@@ -85,7 +85,7 @@ int main() {
         pthread_create(&writers[i], NULL, writer, (void*)i);
     }
 
-    // Join threads (this will never be reached in this example)
+    // Join threads 
     for (i = 0; i < NUM_READERS; i++) {
         pthread_join(readers[i], NULL);
     }
